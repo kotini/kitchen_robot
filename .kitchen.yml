@@ -1,0 +1,16 @@
+---
+driver:
+  name: vagrant
+ 
+platforms:
+  - name: ubuntu-14.04
+  - name: centos-7.2
+
+suites:
+  - name: default
+    run_list:
+      - recipe[testrobot::default]
+    attributes:
+verifier:
+  name: shell
+  command: pybot -d  <%= ENV['OUT_PUT_DIR'] %>  test/integration/pybot
